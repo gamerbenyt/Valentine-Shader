@@ -19,9 +19,10 @@ jobs:
         uses: itsmeow/curseforge-upload@v3
         with:
           token: ${{ secrets.CURSEFORGE_TOKEN }}
-          project_id: '123456' # <-- CHANGE THIS to your Project ID
+          project_id: '1462167' # <-- CHANGE THIS to your Project ID
           game_endpoint: 'minecraft'
           file_path: '§dValentine Shader.zip'
+          display_name: "${{ github.event.release.name }}"
           changelog: ${{ github.event.release.body }}
           release_type: 'release'
           # These IDs tell CF to check the boxes for 1.20.1, 1.21, Iris, and Optifine
@@ -32,8 +33,9 @@ jobs:
         uses: cloudnode-pro/modrinth-publish@v2
         with:
           token: ${{ secrets.MODRINTH_TOKEN }}
-          project: 'AABBCCDD'
+          project: 'JX18zgB7'
           version: ${{ github.event.release.tag_name }}
+          name: "${{ github.event.release.name }}"
           # FOR SHADERS: Use 'iris' or 'optifine' instead of 'fabric'
           loaders: |
             iris
